@@ -1,0 +1,37 @@
+
+27/07/2020  commit: 026d817300d25db9dcfa336247d3d5e9e4fa65e7 
+Export functionality added to all contracts list page. 
+    - User can now use export dropdown to select the type(CSV/EXCEL) of file user wants to download.
+
+    - The data from the file can be the filtered data which displayed on the browser screen.
+
+    - This filtered/Unfiltered data is does not include the paginated data, means All records from the database, exported at once in the downloaded file.
+ 
+    - Downloaded file will contain all the records which satisfies the given filtered condition.
+
+
+29/07/2020 commit: 90fe60a8b7b52f4df2353e1064df8e9bd8c627d6
+File size restriction changed from 5MB to 2MB.
+All contracts list text-overflow ellipse added to hide large content.
+
+14/08/2020 commit: 75cb0d394a327bb81f2ccb9e462898830d5fb8ab
+Resource field is now editable in both add-contract page and edit-contract page.
+
+14/08/2020 commit: 0a54bf4ac2a4460261a25ecbe704f54a5111231d
+Front/Back Half required validations on condition basis added.
+    - when selected products from add-contract page is all calender year product, then front/back half field is non-mandatory field
+    - when selected products contains atleast one reporting year product then, then front/back half field is mandatory field
+Vintage Year Calculations
+    - When portfolio product is calender year product, then Vintage year for that portfolio  is same as the year field value in add-contract page.
+    - When portfolio product is reporting year product and the front/back half field has value as Front half then, 
+      Vintage year for that portfolio is same as the year field value in add-contract page.
+    - When portfolio product is reporting year product and the front/back half field has value as Back half then, 
+      Vintage year for that portfolio is greater than the year field value in add-contract page.
+14/08/2020 commit: d23ce03947474412573014947d3145625c7874f2
+Field added for capturing the Trade Date on UI.
+    - Trade Date added on add-contract page and edit-contract page.
+    - Validations for date consists:
+        * The tradeDate field should no be mandatory. 
+        * The tradeDate field value should no be greater than either ContractDraftDate or ContractReviewDate. 
+        * Indirectly the tradeDate field value should be before FullExecutionDate and PartialExecutionDate because of previous field validations.
+         InShort (TradeDate <= ContractDraftDate or ContractReviewDate <= PartialExecutionDate <= FullExecutionDate)
